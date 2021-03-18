@@ -1,40 +1,29 @@
 #include<bits/stdc++.h>
+#define fast_io ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 
 using namespace std;
 
-struct complexA{
-        int real, i;
-};
-
-complexA compute(int a, int b){
-	complexA c;
-        if (b % 4 == 0) {
-              c.real = a;
-              c.i = 0;
-        }
-        else if( b % 2 == 0){
-            c.real = -a;
-            c.i = 0;
-        } 
-        else if (b % 4 == 1){
-                c.real = a;
-                c.i = 1;
-        }
-	else {
-                c.real = -a;
-                c.i = 1;
-        }
-	return c;
-
-};
-
 int main(){
-        int a, b;
+        fast_io;
+        long long int a, b;
         cin>>a>>b;
         do{
-                complexA c = compute(a, b);
-                string k = c.i?"i":"";
-                cout<<c.real<<k<<endl;
+                if (b % 4 == 0) {
+                b = 0;
+                }
+                else if( b % 2 == 0){
+                a = -a;
+                b = 0;
+                } 
+                else if (b % 4 == 1){
+                        b = 1;
+                }
+                else {
+                        a = -a;
+                        b = 1;
+                }
+                string k = b?"i":"";
+                cout<<a<<k<<endl;
                 cin>>a>>b;
         } while(a||b);
 
